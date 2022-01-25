@@ -6,7 +6,7 @@ python:
 services:
   - docker
 
-vefore_script: pip install docker-compose
+before_script: pip install docker-compose
 
 install:
   - pip install -r requirements.txt
