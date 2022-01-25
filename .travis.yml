@@ -2,7 +2,13 @@ language: python
 python:
   - "3.8"
 # command to install dependencies
+
+services:
+  - docker
+
+vefore_script: pip install docker-compose
+
 install:
   - pip install -r requirements.txt
-scripts:
-  - echo foo
+script:
+  - docker-compose run app sh -c "python manage.py test && flake8"
