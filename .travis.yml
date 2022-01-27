@@ -8,6 +8,9 @@ services:
 
 before_script: pip install docker-compose
 
+before_install:
+  - echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME
+
 install:
   - pip install -r requirements.txt
 script:
