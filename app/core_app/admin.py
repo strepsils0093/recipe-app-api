@@ -1,3 +1,13 @@
-from django.contrib import admin  # noqa
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-# Register your models here.
+from core_app import models
+
+
+class UserAdmin(BaseUserAdmin):
+    ordering = ['id']
+    list_display = ['email', 'name']
+    list_filter = ['is_staff']
+
+
+admin.site.register(models.User, UserAdmin)
