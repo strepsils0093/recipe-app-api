@@ -8,6 +8,13 @@ class UserAdmin(BaseUserAdmin):
     ordering = ['id']
     list_display = ['email', 'name']
     list_filter = ['is_staff']
+    fieldsets = (
+        (None, ),
+        (),
+        (),
+        ()
+
+    )
 
 
 admin.site.register(models.User, UserAdmin)
